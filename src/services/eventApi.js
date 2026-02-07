@@ -6,7 +6,7 @@ const eventApi = {
   // Get all events
   getAllEvents: async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/getevents`);
+      const response = await axios.get(`https://eventra-18by.onrender.com/api/getevents`);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to fetch events');
@@ -29,7 +29,7 @@ const eventApi = {
         is_deleted: false
       };
       
-      const response = await axios.post(`${API_BASE_URL}/events`, payload);
+      const response = await axios.post(`https://eventra-18by.onrender.com/api/events`, payload);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to create event');
@@ -39,7 +39,7 @@ const eventApi = {
   // Update event (if needed in future)
   updateEvent: async (id, eventData) => {
     try {
-      const response = await axios.put(`${API_BASE_URL}/events/${id}`, eventData);
+      const response = await axios.put(`https://eventra-18by.onrender.com/api/events/${id}`, eventData);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to update event');
@@ -49,7 +49,7 @@ const eventApi = {
   // Delete event (soft delete)
   deleteEvent: async (id) => {
     try {
-      const response = await axios.delete(`${API_BASE_URL}/events/${id}`);
+      const response = await axios.delete(`https://eventra-18by.onrender.com/api/events/${id}`);
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to delete event');
