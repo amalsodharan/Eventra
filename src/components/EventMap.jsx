@@ -88,8 +88,8 @@ const parseLocationString = (locationStr) => {
 };
 
 const EventMap = ({ events, onMarkerClick }) => {
-  const [center, setCenter] = useState([20.5937, 78.9629]); // Default: India center
-  const [zoom, setZoom] = useState(5);
+  const [center, setCenter] = useState([12.992917, 80.2218964]); // Default: Chennai center
+  const [zoom, setZoom] = useState(12);
 
   const formatDate = (dateStr) => {
     if (!dateStr || dateStr === '0000-00-00') return 'No end date';

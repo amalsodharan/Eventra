@@ -42,7 +42,7 @@ function LocationMarker({ position, setPosition }) {
 }
 
 const LocationPicker = ({ onLocationSelect, initialPosition }) => {
-  const [position, setPosition] = useState(initialPosition || { lat: 20.5937, lng: 78.9629 });
+  const [position, setPosition] = useState(initialPosition || { lat: 12.992917, lng: 80.2218964 });
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [searching, setSearching] = useState(false);
