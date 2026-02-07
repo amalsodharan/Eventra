@@ -207,7 +207,7 @@ const EventMap = ({ events, onMarkerClick }) => {
                   <Divider sx={{ my: 2 }} />
                   
                   {/* Event Details */}
-                  <Stack spacing={1.5}>
+                  <Stack spacing={0.5}>
                     <Stack direction="row" spacing={1.5} alignItems="center">
                       <CalendarTodayIcon sx={{ fontSize: 18, color: '#1a73e8' }} />
                       <Box>
