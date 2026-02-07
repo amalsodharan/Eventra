@@ -154,7 +154,7 @@ const EventList = ({ events, onEventClick }) => {
                     height: 6,
                     background: getGradient(index),
                   },
-                  borderRadius: 3,
+                  borderRadius: 1,
                 }}
                 onClick={() => onEventClick && onEventClick(event)}
               >
