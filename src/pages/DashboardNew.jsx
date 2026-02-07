@@ -9,7 +9,6 @@ import {
   Snackbar,
   ToggleButton,
   ToggleButtonGroup,
-  CircularProgress,
   AppBar,
   Toolbar,
   IconButton,
@@ -24,7 +23,6 @@ import MapIcon from '@mui/icons-material/Map';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import SportsIcon from '@mui/icons-material/Sports';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import EventMap from '../components/EventMap';
 import EventList from '../components/EventList';
@@ -91,7 +89,7 @@ const Dashboard = () => {
     addEvent(newEvent);
     setSnackbar({
       open: true,
-      message: 'Sports event created successfully! 🎉',
+      message: 'Event created successfully! 🎉',
       severity: 'success'
     });
   };
@@ -121,24 +119,24 @@ const Dashboard = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, minHeight: '100vh', bgcolor: '#1A1A2E' }}>
+    <Box sx={{ flexGrow: 1, minHeight: '100vh', bgcolor: '#ecf0f1' }}>
       {/* App Bar */}
       <HideOnScroll>
         <AppBar 
           position="sticky" 
           elevation={0}
           sx={{
-            background: 'linear-gradient(135deg, #1A1A2E 0%, #6C63FF 100%)',
-            borderBottom: '2px solid rgba(108, 99, 255, 0.5)',
+            background: 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
+            borderBottom: '3px solid #e74c3c',
             borderRadius: 0,
           }}
         >
-          <Toolbar sx={{ py: 1.5 }}>
+          <Toolbar sx={{ py: 2 }}>
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: 1.5,
+                gap: 2,
               }}
             >
               <Box
@@ -146,30 +144,33 @@ const Dashboard = () => {
                 src={logo}
                 alt="Eventra Logo"
                 sx={{
-                  width: 50,
-                  height: 50,
+                  width: 55,
+                  height: 55,
                   objectFit: 'contain',
+                  filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.3))',
                 }}
               />
               <Box>
                 <Typography 
-                  variant="h5" 
+                  variant="h4" 
                   sx={{ 
-                    fontWeight: 500,
+                    fontWeight: 800,
                     color: 'white',
-                    lineHeight: 1.2,
+                    lineHeight: 1.1,
                     letterSpacing: '1px',
+                    fontFamily: '"Playfair Display", serif',
                   }}
                 >
                   Eventra
                 </Typography>
                 <Typography 
-                  variant="caption" 
                   sx={{ 
-                    color: 'rgba(255,255,255,0.95)',
-                    fontWeight: 500,
-                    fontSize: '0.85rem',
-                    letterSpacing: '0.5px',
+                    color: '#ecf0f1',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    letterSpacing: '2px',
+                    fontFamily: '"Lato", sans-serif',
+                    textTransform: 'uppercase',
                   }}
                 >
                   Play. Host. Discover.
@@ -183,23 +184,31 @@ const Dashboard = () => {
             <Stack direction="row" spacing={2} sx={{ mr: 3, display: { xs: 'none', md: 'flex' } }}>
               <Chip
                 icon={<SportsIcon />}
-                label={`${events.length} Total Events`}
+                label={`${events.length} Total`}
                 sx={{
-                  bgcolor: 'rgba(255,255,255,0.2)',
+                  bgcolor: 'rgba(255,255,255,0.15)',
                   color: 'white',
-                  fontWeight: 600,
+                  fontWeight: 700,
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255,255,255,0.2)',
+                  border: '2px solid rgba(255,255,255,0.2)',
+                  fontFamily: '"Lato", sans-serif',
+                  '&:hover': {
+                    bgcolor: 'rgba(255,255,255,0.25)',
+                  }
                 }}
               />
               <Chip
                 icon={<TrendingUpIcon />}
                 label={`${getUpcomingEventsCount()} Upcoming`}
                 sx={{
-                  bgcolor: 'rgba(52, 168, 83, 0.9)',
+                  bgcolor: '#27ae60',
                   color: 'white',
-                  fontWeight: 600,
-                  backdropFilter: 'blur(10px)',
+                  fontWeight: 700,
+                  fontFamily: '"Lato", sans-serif',
+                  border: '2px solid rgba(255,255,255,0.3)',
+                  '&:hover': {
+                    bgcolor: '#229954',
+                  }
                 }}
               />
             </Stack>
@@ -210,10 +219,12 @@ const Dashboard = () => {
                 onClick={fetchEvents} 
                 disabled={loading}
                 sx={{
-                  bgcolor: 'rgba(255,255,255,0.15)',
+                  bgcolor: 'rgba(255,255,255,0.1)',
                   '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.25)',
+                    bgcolor: 'rgba(255,255,255,0.2)',
+                    transform: 'rotate(180deg)',
                   },
+                  transition: 'all 0.5s ease',
                   mr: 2,
                 }}
               >
@@ -226,24 +237,26 @@ const Dashboard = () => {
               exclusive
               onChange={handleViewChange}
               sx={{
-                bgcolor: 'rgba(255,255,255,0.15)',
+                bgcolor: 'rgba(255,255,255,0.1)',
                 backdropFilter: 'blur(10px)',
                 borderRadius: 2,
+                border: '2px solid rgba(255,255,255,0.2)',
                 '& .MuiToggleButton-root': {
-                  color: 'rgba(255,255,255,0.8)',
+                  color: 'rgba(255,255,255,0.7)',
                   border: 'none',
-                  px: 2,
+                  px: 3,
                   py: 1,
+                  fontFamily: '"Lato", sans-serif',
+                  fontWeight: 700,
                   '&.Mui-selected': {
-                    bgcolor: 'rgba(255,255,255,0.25)',
+                    bgcolor: '#e74c3c',
                     color: 'white',
-                    fontWeight: 600,
                     '&:hover': {
-                      bgcolor: 'rgba(255,255,255,0.35)',
+                      bgcolor: '#c0392b',
                     },
                   },
                   '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.2)',
+                    bgcolor: 'rgba(255,255,255,0.15)',
                   },
                 },
               }}
@@ -262,14 +275,16 @@ const Dashboard = () => {
       </HideOnScroll>
 
       {/* Main Content */}
-      <Container maxWidth="xl" sx={{ mt: 3, mb: 3 }}>
+      <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
         {error && (
           <Alert 
             severity="error" 
             sx={{ 
-              mb: 2,
+              mb: 3,
               borderRadius: 2,
-              boxShadow: '0 2px 8px rgba(234, 67, 53, 0.15)',
+              boxShadow: '0 4px 12px rgba(231, 76, 60, 0.2)',
+              border: '2px solid #e74c3c',
+              fontFamily: '"Lato", sans-serif',
             }} 
             onClose={() => setError(null)}
           >
@@ -280,12 +295,11 @@ const Dashboard = () => {
         <Paper 
           elevation={0}
           sx={{ 
-            height: 'calc(100vh - 180px)', 
+            height: 'calc(100vh - 220px)', 
             overflow: 'hidden',
-            borderRadius: 1,
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
-            border: '1px solid rgba(108, 99, 255, 0.3)',
-            bgcolor: '#1A1A2E',
+            borderRadius: 3,
+            boxShadow: '0 8px 32px rgba(44, 62, 80, 0.15)',
+            border: '3px solid #bdc3c7',
           }}
         >
           {loading ? (
@@ -295,7 +309,7 @@ const Dashboard = () => {
               {view === 'map' ? (
                 <EventMap events={events} onMarkerClick={handleMarkerClick} />
               ) : (
-                <Box sx={{ height: '100%', overflow: 'auto', bgcolor: '#0F0E17' }}>
+                <Box sx={{ height: '100%', overflow: 'auto', bgcolor: '#f8f9fa' }}>
                   <EventList events={events} onEventClick={handleEventClick} />
                 </Box>
               )}
@@ -305,28 +319,28 @@ const Dashboard = () => {
       </Container>
 
       {/* Floating Action Button */}
-      <Tooltip title="Create New Sports Event" placement="left">
+      <Tooltip title="Create New Event" placement="left">
         <Fab
           color="primary"
           aria-label="add event"
           sx={{
             position: 'fixed',
-            bottom: 32,
-            right: 32,
-            width: 64,
-            height: 64,
-            background: 'linear-gradient(135deg, #6C63FF 0%, #FF6584 100%)',
-            boxShadow: '0 8px 24px rgba(108, 99, 255, 0.5)',
+            bottom: 40,
+            right: 40,
+            width: 70,
+            height: 70,
+            background: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
+            boxShadow: '0 8px 32px rgba(231, 76, 60, 0.4)',
             '&:hover': {
-              background: 'linear-gradient(135deg, #FF6584 0%, #6C63FF 100%)',
+              background: 'linear-gradient(135deg, #c0392b 0%, #e74c3c 100%)',
               transform: 'scale(1.1) rotate(90deg)',
-              boxShadow: '0 12px 32px rgba(108, 99, 255, 0.7)',
+              boxShadow: '0 12px 48px rgba(231, 76, 60, 0.6)',
             },
-            transition: 'all 0.3s ease',
+            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
           }}
           onClick={handleCreateEvent}
         >
-          <AddIcon sx={{ fontSize: 32 }} />
+          <AddIcon sx={{ fontSize: 36 }} />
         </Fab>
       </Tooltip>
 
@@ -350,7 +364,9 @@ const Dashboard = () => {
           sx={{ 
             width: '100%',
             borderRadius: 2,
-            fontWeight: 600,
+            fontWeight: 700,
+            fontFamily: '"Lato", sans-serif',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
           }}
           variant="filled"
         >

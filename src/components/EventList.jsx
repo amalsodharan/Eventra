@@ -111,7 +111,7 @@ const EventList = ({ events, onEventClick }) => {
         >
           <EmojiEventsIcon sx={{ fontSize: 70, color: 'white' }} />
         </Box>
-        <Typography variant="h4" sx={{ fontWeight: 800, color: '#1a1a1a', mb: 1 }}>
+        <Typography variant="h4" sx={{ fontWeight: 800, color: '#ecd6d6', mb: 1 }}>
           No Events Yet
         </Typography>
         <Typography variant="body1" color="text.secondary" align="center" sx={{ maxWidth: 400, mb: 3 }}>
@@ -246,10 +246,10 @@ const EventList = ({ events, onEventClick }) => {
                     variant="h6"
                     sx={{
                       fontWeight: 800,
-                      color: '#1a1a1a',
-                      mb: 1.5,
+                      color: '#ecd6d6',
+                      mb: 0.5,
                       lineHeight: 1.3,
-                      minHeight: 56,
+                      minHeight: 35,
                       display: '-webkit-box',
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: 'vertical',
@@ -265,9 +265,9 @@ const EventList = ({ events, onEventClick }) => {
                     variant="body2"
                     sx={{
                       color: '#5f6368',
-                      mb: 2.5,
+                      mb: 0.5,
                       lineHeight: 1.6,
-                      minHeight: 66,
+                      minHeight: 40,
                       display: '-webkit-box',
                       WebkitLineClamp: 3,
                       WebkitBoxOrient: 'vertical',
@@ -287,7 +287,7 @@ const EventList = ({ events, onEventClick }) => {
                         gap: 1.5,
                         p: 1.5,
                         borderRadius: 2,
-                        bgcolor: '#f8f9fa',
+                        bgcolor: '#1A1A2E',
                         border: '1px solid #e9ecef',
                       }}
                     >
@@ -308,7 +308,7 @@ const EventList = ({ events, onEventClick }) => {
                         <Typography variant="caption" sx={{ color: '#5f6368', fontWeight: 600, fontSize: '0.7rem' }}>
                           EVENT DATE
                         </Typography>
-                        <Typography variant="body2" sx={{ fontWeight: 700, color: '#1a1a1a', fontSize: '0.85rem' }}>
+                        <Typography variant="body2" sx={{ fontWeight: 700, color: '#ecd6d6', fontSize: '0.85rem' }}>
                           {formatDate(event.start_date)}
                           {event.end_date && event.end_date !== '0000-00-00' && 
                             ` - ${formatDate(event.end_date)}`}
@@ -325,7 +325,7 @@ const EventList = ({ events, onEventClick }) => {
                           gap: 1.5,
                           p: 1.5,
                           borderRadius: 2,
-                          bgcolor: '#f0f7ff',
+                          bgcolor: '#1A1A2E',
                           border: '1px solid #d0e7ff',
                         }}
                       >
@@ -350,7 +350,7 @@ const EventList = ({ events, onEventClick }) => {
                             variant="body2" 
                             sx={{ 
                               fontWeight: 700, 
-                              color: '#1a1a1a',
+                              color: '#ecd6d6',
                               fontSize: '0.85rem',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
@@ -372,7 +372,7 @@ const EventList = ({ events, onEventClick }) => {
                         gap: 1.5,
                         p: 1.5,
                         borderRadius: 2,
-                        bgcolor: '#f0fff4',
+                        bgcolor: '#1A1A2E',
                         border: '1px solid #c6f6d5',
                       }}
                     >
@@ -397,7 +397,7 @@ const EventList = ({ events, onEventClick }) => {
                           variant="body2" 
                           sx={{ 
                             fontWeight: 700, 
-                            color: '#1a1a1a',
+                            color: '#ecd6d6',
                             fontSize: '0.85rem',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',

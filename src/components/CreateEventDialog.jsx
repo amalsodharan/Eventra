@@ -25,7 +25,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import SportsIcon from '@mui/icons-material/Sports';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import LocationPicker from './LocationPicker';
+import LocationPicker from './LocationPickerEnhanced';
 import eventApi from '../services/eventApi';
 
 const steps = ['Event Details', 'Select Location', 'Review & Create'];
@@ -250,7 +250,7 @@ const CreateEventDialog = ({ open, onClose, onEventCreated }) => {
               elevation={0} 
               sx={{ 
                 p: 3, 
-                bgcolor: '#f8f9fa',
+                bgcolor: '#1A1A2E',
                 borderRadius: 2,
                 border: '1px solid #e0e0e0',
               }}
@@ -271,7 +271,7 @@ const CreateEventDialog = ({ open, onClose, onEventCreated }) => {
                   <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
                     Event Name
                   </Typography>
-                  <Typography variant="h6" sx={{ fontWeight: 700, color: '#1a1a1a' }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, color: '#ecd6d6' }}>
                     {formData.event_name}
                   </Typography>
                 </Box>
@@ -354,7 +354,7 @@ const CreateEventDialog = ({ open, onClose, onEventCreated }) => {
       fullWidth
       PaperProps={{
         sx: {
-          borderRadius: 3,
+          borderRadius: 1,
         }
       }}
     >
