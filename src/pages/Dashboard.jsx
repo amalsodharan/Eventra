@@ -31,6 +31,7 @@ import EventList from '../components/EventList';
 import CreateEventDialog from '../components/CreateEventDialog';
 import useEventStore from '../store/eventStore';
 import eventApi from '../services/eventApi';
+import logo from '../assets/logo.png';
 
 function HideOnScroll({ children }) {
   const trigger = useScrollTrigger();
@@ -141,7 +142,7 @@ const Dashboard = () => {
             >
               <Box
                 component="img"
-                src="src/assets/logo.png"
+                src={logo}
                 alt="Eventra Logo"
                 sx={{
                   width: 50,
