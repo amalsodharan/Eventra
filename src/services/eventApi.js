@@ -1,19 +1,26 @@
 import axios from 'axios';
+import authService from './authService';
 
-const API_BASE_URL = '/api';
+const BASE_URL = 'https://eventra-18by.onrender.com';
+
+// Attach token to every request automatically
+const getAuthHeaders = () => {
+  const token = authService.getToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+};
 
 const eventApi = {
-  // Get all events
   getAllEvents: async () => {
     try {
-      const response = await axios.get(`https://eventra-18by.onrender.com/api/getevents`);
+      const response = await axios.get(`https://eventra-18by.onrender.com/api/getevents`, {
+        headers: getAuthHeaders(),
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to fetch events');
     }
   },
 
-  // Create new event
   createEvent: async (eventData) => {
     try {
       const payload = {
@@ -26,35 +33,38 @@ const eventApi = {
         email: eventData.email,
         start_date: eventData.start_date,
         end_date: eventData.end_date || '0000-00-00',
-        is_deleted: false
+        is_deleted: false,
       };
-      
-      const response = await axios.post(`https://eventra-18by.onrender.com/api/events`, payload);
+      const response = await axios.post(`https://eventra-18by.onrender.com/api/events`, payload, {
+        headers: getAuthHeaders(),
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to create event');
     }
   },
 
-  // Update event (if needed in future)
   updateEvent: async (id, eventData) => {
     try {
-      const response = await axios.put(`https://eventra-18by.onrender.com/api/events/${id}`, eventData);
+      const response = await axios.put(`https://eventra-18by.onrender.com/api/events/${id}`, eventData, {
+        headers: getAuthHeaders(),
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to update event');
     }
   },
 
-  // Delete event (soft delete)
   deleteEvent: async (id) => {
     try {
-      const response = await axios.delete(`https://eventra-18by.onrender.com/api/events/${id}`);
+      const response = await axios.delete(`https://eventra-18by.onrender.com/api/events/${id}`, {
+        headers: getAuthHeaders(),
+      });
       return response.data;
     } catch (error) {
       throw new Error(error.response?.data?.message || 'Failed to delete event');
     }
-  }
+  },
 };
 
 export default eventApi;
