@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authService from './authService';
 
-const BASE_URL = 'https://eventra-18by.onrender.com';
+const BASE_URL = 'https://apieventra.vercel.app';
 
 // Attach token to every request automatically
 const getAuthHeaders = () => {
@@ -12,7 +12,7 @@ const getAuthHeaders = () => {
 const eventApi = {
   getAllEvents: async () => {
     try {
-      const response = await axios.get(`https://eventra-18by.onrender.com/api/getevents`, {
+      const response = await axios.get(`https://apieventra.vercel.app/api/getevents`, {
         headers: getAuthHeaders(),
       });
       return response.data;
@@ -35,7 +35,7 @@ const eventApi = {
         end_date: eventData.end_date || '0000-00-00',
         is_deleted: false,
       };
-      const response = await axios.post(`https://eventra-18by.onrender.com/api/events`, payload, {
+      const response = await axios.post(`https://apieventra.vercel.app/api/events`, payload, {
         headers: getAuthHeaders(),
       });
       return response.data;
@@ -46,7 +46,7 @@ const eventApi = {
 
   updateEvent: async (id, eventData) => {
     try {
-      const response = await axios.put(`https://eventra-18by.onrender.com/api/events/${id}`, eventData, {
+      const response = await axios.put(`https://apieventra.vercel.app/api/events/${id}`, eventData, {
         headers: getAuthHeaders(),
       });
       return response.data;
@@ -57,7 +57,7 @@ const eventApi = {
 
   deleteEvent: async (id) => {
     try {
-      const response = await axios.delete(`https://eventra-18by.onrender.com/api/events/${id}`, {
+      const response = await axios.delete(`https://apieventra.vercel.app/api/events/${id}`, {
         headers: getAuthHeaders(),
       });
       return response.data;

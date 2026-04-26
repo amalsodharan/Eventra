@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://eventra-18by.onrender.com';
+const BASE_URL = 'https://apieventra.vercel.app';
 
 // Decode JWT payload without external library
 const decodeToken = (token) => {
@@ -15,7 +15,7 @@ const decodeToken = (token) => {
 const authService = {
   login: async (email, password) => {
     try {
-      const response = await axios.post(`https://eventra-18by.onrender.com/api/login`, { email, password });
+      const response = await axios.post(`https://apieventra.vercel.app/api/login`, { email, password });
       if (response.data.token) {
         localStorage.setItem('eventra_token', response.data.token);
         const decoded = decodeToken(response.data.token);
@@ -33,7 +33,7 @@ const authService = {
 
   register: async (userData) => {
     try {
-      const response = await axios.post(`https://eventra-18by.onrender.com/api/createUser`, userData);
+      const response = await axios.post(`https://apieventra.vercel.app/api/createUser`, userData);
       if (response.data.token) {
         localStorage.setItem('eventra_token', response.data.token);
         const decoded = decodeToken(response.data.token);

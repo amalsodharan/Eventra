@@ -40,10 +40,10 @@ import { useNavigate } from 'react-router-dom';
 import authService from '../services/authService';
 import axios from 'axios';
 
-const BASE_URL = 'https://eventra-18by.onrender.com';
+const BASE_URL = 'https://apieventra.vercel.app';
 
 // Quick query templates
-const TEMPLATES = [
+const TEMPLATES = [ 
   { label: 'All Events', query: 'SELECT * FROM Events ORDER BY created_at DESC;' },
   { label: 'All Users', query: 'SELECT id, email, first_name, last_name, role, created_at FROM Users ORDER BY created_at DESC;' },
   { label: 'Show Tables', query: 'SHOW TABLES;' },
@@ -117,7 +117,7 @@ const AdminQueryPage = () => {
     try {
       const token = authService.getToken();
       const response = await axios.post(
-        `https://eventra-18by.onrender.com/api/admin/query`,
+        `https://apieventra.vercel.app/api/admin/query`,
         { query: query.trim() },
         { headers: { Authorization: `Bearer ${token}` } }
       );

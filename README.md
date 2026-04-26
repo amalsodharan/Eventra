@@ -27,7 +27,7 @@ A React-based event management application with interactive map integration usin
 
 - Node.js (v16 or higher)
 - npm or yarn
-- Backend API running on `https://eventra-18by.onrender.com`
+- Backend API running on `https://apieventra.vercel.app`
 
 ## Installation
 
@@ -65,7 +65,7 @@ src/
 
 ## API Integration
 
-The app connects to your backend API at `https://eventra-18by.onrender.com/api/events`
+The app connects to your backend API at `https://apieventra.vercel.app/api/events`
 
 ### Expected API Endpoints
 
@@ -167,7 +167,7 @@ The app uses Vite's proxy configuration to forward API requests:
 // vite.config.js
 proxy: {
   '/api': {
-    target: 'https://eventra-18by.onrender.com',
+    target: 'https://apieventra.vercel.app',
     changeOrigin: true,
   }
 }
@@ -183,7 +183,7 @@ To change the backend URL, update `vite.config.js`.
 - Verify internet connection for OpenStreetMap tiles
 
 ### API connection issues
-- Ensure backend is running on `https://eventra-18by.onrender.com`
+- Ensure backend is running on `https://apieventra.vercel.app`
 - Check CORS configuration on backend
 - Verify API endpoints match expected format
 
